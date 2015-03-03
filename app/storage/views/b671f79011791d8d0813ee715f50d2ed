@@ -1,0 +1,42 @@
+)
+
+<?php $__env->startSection('content'); ?>
+    <section role="main" class="admin-post section-container">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-8 col-sm-offset-2 text-center">
+                    <form  action="<?php echo URL::action('PostsController@adminUpdatePost', array('id' => $post->id)); ?>" method="post" enctype="multipart/form-data" class="form">
+                        <div class="form-group">
+                            <select name="tag" class="form-control" required>
+                                <?php foreach($tags as $tag): ?>
+                                    <?php if($tag == $post->tag): ?>
+                                        <option selected><?php echo $tag; ?></option>
+                                    <?php endif; ?>
+                                    <option><?php echo $tag; ?></option>
+                                <?php endforeach; ?>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" name="title" value="<?php echo $post->title; ?>" required/>
+                        </div>
+                        <textarea class="ckeditor form-control" name="description" placeholder="Enter Passage Here" id="editor1"><?php echo $post->description; ?></textarea>
+                        <div class="form-group upload">
+                            <span>Change Picture</span>
+                            <input type="file" class="form-control" name="image" placeholder="Upload Image"/>
+                        </div>
+                        <div class="form-group">
+                            <button type="submit"name="submit" class="btn btn-primary form-control" >Update Post</button>
+                        </div>
+                        <?php if(Session::has('error')): ?>
+                            <div class="form-group">
+                                <span name="error" class="error form-control" ><?php echo Session::get('error'); ?></span>
+                            </div>
+                        <?php endif; ?>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+<?php $__env->stopSection(); ?>
+<script src="<?php echo asset('ckeditor/ckeditor.js'); ?>"></script>
+<?php echo $__env->make('admin/main_layout', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

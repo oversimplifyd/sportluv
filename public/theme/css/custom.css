@@ -1,0 +1,108 @@
+.index .row.post{
+    border-bottom: 3px solid #E7E7E7;
+    /*border-top: 2px solid #000000;*/
+    box-shadow: 2px 3px 8px 2px rgb(118, 123, 145);
+}
+
+.index .post p{
+    font-size: 15px ;
+    margin: 2px;
+    margin-bottom: 15px;
+}
+
+.index-body{
+    background-color: #000000;
+}
+
+.post-details {
+    color: green;
+    font-size: 15px;
+
+}
+.post-box{
+    background-color:  #ffffff;
+}
+
+.post-article{
+    padding: 10px;
+}
+
+.post-container{
+    background-color: #ffffff;
+    padding: 30px;
+}
+
+.admin-nav {
+    background-color: #000000;
+}
+
+.admin-header{
+    margin-top: 50px;
+}
+
+.admin-header ul .btn{
+    padding: 10px;
+    background-color: #000000;
+    color: #ffffff;
+    text-transform: capitalize;
+    border-radius: 50%;
+}
+
+.admin-header ul .btn:hover{
+    background-color: green;
+}
+
+.login-section {
+    margin-top: 150px;
+}
+
+.login-section .panel-default{
+    border-color: green;
+}
+
+.login-section .panel-heading{
+    background-color: green;
+}
+
+.login-section .btn{
+    padding: 10px;
+    background-color: green;
+}
+
+.section-container {
+    margin-top: 80px;
+}
+
+.admin-post div > button {
+    background-color: green;
+    padding: 0px;
+}
+
+.admin-post div > button:hover {
+    background-color: black;
+}
+
+.view-post div button {
+    background-color: green;
+    padding: 5px;
+}
+
+.view-post div button:hover {
+    background-color: black;
+}
+
+.admin-post .upload{
+    margin-top:  20px;
+    borde: 0px;
+    font-size: small;
+}
+
+.admin-post .upload span{
+    color: green;
+    font-weight: 800;
+}
+
+.error {
+    color: red;
+    font-weight: 600;
+}

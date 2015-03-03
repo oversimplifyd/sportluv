@@ -1,0 +1,41 @@
+<!doctype html> 
+<html>
+    
+    <head>
+        <title> Add Post</title>
+    </head>
+    <body>
+        <?php echo Form::open(array('action' => 'UsersController@postSignup', 'method' => 'post')); ?>
+
+        <?php echo Form::label('Name'); ?>
+
+        <?php echo Form::text('name'); ?>
+
+        <?php echo Form::label('Username'); ?>
+
+        <?php echo Form::text('username'); ?>
+
+        <?php echo Form::label('password'); ?>
+
+        <?php echo Form::password('password'); ?>
+
+        <?php echo Form::label('Confirm Password'); ?>
+
+        <?php echo Form::password('password_confirmation'); ?>
+
+        <?php echo Form::label('Country'); ?>
+
+        <?php echo Form::text('country'); ?>
+
+        <?php echo Form::label('State'); ?>
+
+        <?php echo Form::text('state'); ?>
+
+        <?php echo Form::file('profile_image'); ?>
+
+        <?php echo Form::submit('Sign Up'); ?>
+
+        <?php echo Form::close(); ?>
+
+    </body>
+</html>

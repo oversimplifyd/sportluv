@@ -1,0 +1,69 @@
+)
+
+<?php $__env->startSection('content'); ?>
+
+    <section role="main" class="admin-post section-container">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-8 col-sm-offset-2 text-center">
+                    <form  action="<?php echo url('/admin/create_post'); ?>" method="post" enctype="multipart/form-data" class="form">
+                        <div class="form-group">
+                            <select name="tag" class="form-control" required>
+                                <?php foreach($tags as $tag): ?>
+                                    <option><?php echo $tag; ?></option>
+                                <?php endforeach; ?>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" name="title" placeholder="Enter a title for this post" required/>
+                        </div>
+                        <textarea class="ckeditor form-control" name="description" placeholder="Enter Passage Here" id="editor1"></textarea>
+                        <div class="form-group upload">
+                            <span>Upload a Picture</span>
+                            <input type="file" class="form-control" name="image" placeholder="Upload Image"/>
+                        </div>
+                        <div class="form-group">
+                            <button type="submit"name="submit" class="btn btn-primary form-control" >Submit Post</button>
+                        </div>
+                        <?php if(Session::has('error')): ?>
+                            <div class="form-group">
+                                <span name="error" class="error form-control" ><?php echo Session::get('error'); ?></span>
+                            </div>
+                        <?php endif; ?>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+       <?php /* <?php echo Form::open(array('action' => 'PostsController@adminCreatePost', 'method' => 'post')); ?>
+
+        <?php echo Form::label('Select a tag'); ?>
+
+        {
+        </br>{Form::select('tag', array('Al' => 'All', 'Fi' => 'Fixxtures'), 'Al')}}
+        <?php echo Form::label('title'); ?>
+
+        <?php echo Form::text('title'); ?>
+
+        <?php echo Form::label('description'); ?>
+
+        <?php echo Form::textarea('description'); ?>
+
+        <?php echo Form::file('post_image'); ?>
+
+        <?php echo Form::submit('Post'); ?>
+
+        <?php echo Form::close(); ?>
+
+*/ ?>
+<?php $__env->stopSection(); ?>
+<script src="<?php echo asset('ckeditor/ckeditor.js'); ?>"></script>
+
+
+
+
+
+
+<?php echo $__env->make('admin/main_layout', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

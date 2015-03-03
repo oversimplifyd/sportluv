@@ -1,0 +1,23 @@
+<!doctype html> 
+<html>
+    
+    <head>
+        <title> Add Post</title>
+    </head>
+    <body>
+        <?php echo Form::open(array('action' => 'UsersController@postLogin', 'method' => 'post')); ?>
+
+        <?php echo Form::label('username'); ?>
+
+        <?php echo Form::text('username'); ?>
+
+        <?php echo Form::label('password'); ?>
+
+        <?php echo Form::password('password'); ?>
+
+        <?php echo Form::submit('Log In'); ?>
+
+        <?php echo Form::close(); ?>
+
+    </body>
+</html>

@@ -1,0 +1,26 @@
+<!doctype html> 
+<html>
+    
+    <head>
+        <title> Add Post</title>
+    </head>
+    <body>
+        <?php echo Form::open(array('action' => 'PostsController@createPost', 'method' => 'post')); ?>
+
+        <?php echo Form::label('Select a tag'); ?>
+
+        <?php echo Form::select('tag', array('Al' => 'All', 'Fi' => 'Fixxtures'), 'Al'); ?>
+
+        </br>
+        <?php echo Form::label('description'); ?>
+
+        <?php echo Form::textarea('description'); ?>
+
+        <?php echo Form::file('post_image'); ?>
+
+        <?php echo Form::submit('Post'); ?>
+
+        <?php echo Form::close(); ?>
+
+    </body>
+</html>
