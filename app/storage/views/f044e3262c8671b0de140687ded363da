@@ -33,7 +33,7 @@
 </head>
 
 <body class="index-body">
-
+<div id="fb-root"></div>
     <!-- Navigation -->
     <nav class="navbar navbar-default navbar-custom navbar-fixed-top">
         <div class="container-fluid">
@@ -97,7 +97,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="#">
+                            <a href="http://www.facebook.com/plugins/share_button.php?href=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&layout=link&appId=721043814679381">
                                 <span class="fa-stack fa-lg">
                                     <i class="fa fa-circle fa-stack-2x"></i>
                                     <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
@@ -112,6 +112,7 @@
                                 </span>
                             </a>
                         </li>
+
                     </ul>
                     <p class="copyright text-muted">Copyright &copy; Sport-Luv 2015</p>
                 </div>
@@ -127,7 +128,7 @@
 
     <!-- Custom Theme JavaScript -->
     <script src="/theme/js/clean-blog.min.js"></script>
-
 </body>
 
 </html>
+
