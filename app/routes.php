@@ -32,31 +32,30 @@ Route::post('/post_login', array('as' => 'post_login', 'uses' => 'UsersControlle
 
 Route::post('/post_signup', array('as' => 'post_signup', 'uses' => 'UsersController@postSignup'));*/
 
+
 // ADMIN ROUTE
 Route::get('/admin', array('as' => 'admin_login', 'uses' => 'UsersController@getAdminLogin'));
 
-Route::get('/admin/home', array('as' => 'admin_home', /*'before' => 'guest.admin',*/'uses' => 'UsersController@getAdminIndex'));
+Route::get('/admin/home', array('as' => 'admin_home', 'before' => 'auth', 'uses' => 'UsersController@getAdminIndex'));
 
 Route::get('/admin/logout', array('as' => 'admin_logout', 'uses' => 'UsersController@getAdminLogout'));
 
-Route::get('/admin/view_posts/{date_range?}', array('as' => 'admin_view_posts', 'uses' => 'PostsController@adminViewPosts'));
+Route::get('/admin/view_posts/{date_range?}', array('as' => 'admin_view_posts',  'before' => 'auth', 'uses' => 'PostsController@adminViewPosts'));
 
-Route::get('/admin/view_post/{id}', array('as' => 'admin_view_post', 'uses' => 'PostsController@adminViewPost'));
+Route::get('/admin/view_post/{id}', array('as' => 'admin_view_post',  'before' => 'auth', 'uses' => 'PostsController@adminViewPost'));
 
-Route::get('/admin/add_post', array('as' => 'admin_add_post', /*'before' => 'auth',*/ 'uses' => 'PostsController@adminAddPost'));
+Route::get('/admin/add_post', array('as' => 'admin_add_post',  'before' => 'auth', 'uses' => 'PostsController@adminAddPost'));
 
-Route::get('/admin/delete_post/{id}', array('as' => 'admin_delete_post', 'uses' => 'PostsController@adminDeletePost'));
+Route::get('/admin/delete_post/{id}', array('as' => 'admin_delete_post',  'before' => 'auth', 'uses' => 'PostsController@adminDeletePost'));
 
-Route::get('/admin/edit_post/{id}', array('as' => 'admin_edit_post', 'uses' => 'PostsController@adminEditPost'));
+Route::get('/admin/edit_post/{id}', array('as' => 'admin_edit_post',  'before' => 'auth', 'uses' => 'PostsController@adminEditPost'));
 
-Route::get('/admin/update_view', array('as' => 'admin_update_view', 'uses' => 'PostsController@updateView'));
+Route::get('/admin/update_view', array('as' => 'admin_update_view',  'before' => 'auth', 'uses' => 'PostsController@updateView'));
 
-Route::post('/admin/post_login', array('as' => 'post_admin_login', 'uses' => 'UsersController@postAdminLogin'));
+Route::post('/admin/post_login', array('as' => 'post_admin_login',  'uses' => 'UsersController@postAdminLogin'));
 
-Route::post('/admin/create_post', array('as' => 'admin_create_post', 'uses' => 'PostsController@adminCreatePost'));
+Route::post('/admin/create_post', array('as' => 'admin_create_post',  'before' => 'auth', 'uses' => 'PostsController@adminCreatePost'));
 
-Route::post('/admin/update_post/{id}', array('as' => 'admin_update_post', 'uses' => 'PostsController@adminUpdatePost'));
+Route::post('/admin/update_post/{id}', array('as' => 'admin_update_post',  'before' => 'auth', 'uses' => 'PostsController@adminUpdatePost'));
 
-Route::post('/admin/find_post', array('as' => 'admin_find_post', 'uses' => 'PostsController@adminFindPost'));
-
-/*Route::get('/limit/{id}', array('as' => 'limit', 'uses' => 'PostsController@limitString'));*/
+Route::post('/admin/find_post', array('as' => 'admin_find_post',  'before' => 'auth', 'uses' => 'PostsController@adminFindPost'));
