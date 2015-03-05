@@ -1,2 +1,0 @@
-# sportluv
-A sport blog

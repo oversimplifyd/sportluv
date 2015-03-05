@@ -4,7 +4,7 @@ class PostsController extends BaseController {
 
 	public function getIndex()
 	{
-        $posts = Post::all();
+        $posts = Post::paginate(10);
         return View::make('index')->with('posts', $posts);
 	}
     
