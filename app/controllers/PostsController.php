@@ -99,19 +99,7 @@ class PostsController extends BaseController {
         $post = Post::find($id);
         return View::make('admin/view_post')->with('post', $post);
     }
-
-    public function adminViewPosts($date_range =null)
-    {
-        /*$post = Post::find($id);*/
-           /* return View::make('view_post')->with('post', $post);*/
-        if(!is_null($date_range)){
-
-        }else {
-            $posts = Post::all();
-            return View::make('admin/view_posts')->with('posts', $posts);
-        }
-    }
-
+    
     public function adminCreatePost()
 	{
         // Checks if this user is an authenticated user
