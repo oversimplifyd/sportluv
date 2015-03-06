@@ -4,7 +4,7 @@ class PostsController extends BaseController {
 
 	public function getIndex()
 	{
-        $posts = Post::remember(60)->paginate(4);
+        $posts = Post::remember(60)->paginate(10);
         return View::make('index')->with('posts', $posts);
 	}
     

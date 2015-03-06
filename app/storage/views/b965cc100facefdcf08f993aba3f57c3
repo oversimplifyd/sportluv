@@ -24,7 +24,7 @@
                     <?php foreach($posts as $post): ?>
                     <div class="row panel panel-body">
                         <div class="col-sm-3">
-                            <span><?php echo $post->post_image;; ?></span>
+                            <span><?php echo $post->tag;; ?></span>
                         </div>
                         <div class="col-sm-6">
                             <span><?php echo $post->title;; ?></span>

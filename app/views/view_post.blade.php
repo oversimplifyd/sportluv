@@ -11,7 +11,7 @@
         </div>
         <div class="row" id="post_thread">
             <div class="col-sm-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <h2 class="section-heading">{{$post->tag}}</h2>
+                <h2 class="section-heading">{{$post->title}}</h2>
                 <p> {{nl2br(nl2br($post->description))}}</p>
             </div>
         </div>

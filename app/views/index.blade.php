@@ -11,7 +11,7 @@
              <div class="col-sm-6">
                      <a href="{{URL::route('view_post',$post->id)}}#post_thread" style="text-decoration: none">
                          <h3>
-                             {{$post->tag}}
+                             {{$post->title}}
                          </h3>
                      </a>
                          <div style="height: 200px"><p>{{$post->limitString()}}</p></div>

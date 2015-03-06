@@ -2,6 +2,9 @@
 
 class UsersController extends BaseController {
 
+    /**
+     * @return $this
+     */
     public function getAdminIndex()
     {
         $tags = Post::$tags;
@@ -18,7 +21,10 @@ class UsersController extends BaseController {
         Auth::logout();
         return Redirect::route('admin_login');
     }
-    
+
+    /**
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function postAdminLogin()
     {
         $username = Input::get('username');
@@ -33,21 +39,3 @@ class UsersController extends BaseController {
         }
     }
 }
-
-/*
- public function postSignup()
- {
-     $validation = Validator::make(Input::all(), User::$signup_rules);
-
-     if($validation->fails())
-     {
-         return $validation->errors();
-     }
-
-     return "Validated";
- }
-
- public function getSignup()
- {
-     return View::make('signup');
- }*/

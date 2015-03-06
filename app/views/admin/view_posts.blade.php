@@ -26,7 +26,7 @@
                     @foreach($posts as $post)
                     <div class="row panel panel-body">
                         <div class="col-sm-3">
-                            <span>{{$post->post_image;}}</span>
+                            <span>{{$post->tag;}}</span>
                         </div>
                         <div class="col-sm-6">
                             <span>{{$post->title;}}</span>
