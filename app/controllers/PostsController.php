@@ -4,7 +4,7 @@ class PostsController extends BaseController {
 
 	public function getIndex()
 	{
-        $posts = Post::all();
+        $posts = Post::remember(60)->paginate(4);
         return View::make('index')->with('posts', $posts);
 	}
     
@@ -146,6 +146,11 @@ class PostsController extends BaseController {
         }
 	}
 
+    /**
+     * This takes the i of the post to be updated
+     * @param $id
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function adminUpdatePost($id)
     {
         $user_id = Auth::user()->id;

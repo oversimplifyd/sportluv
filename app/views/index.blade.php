@@ -15,20 +15,25 @@
                          </h3>
                      </a>
                          <div style="height: 200px"><p>{{$post->limitString()}}</p></div>
-                 <div class="row" class="panel panel-danger">
-                     <div class="col-sm-4" class="post-details">
+                 <div class="row panel panel-danger">
+                     <div class="col-sm-4 post-details">
                          <div class="post-details"><p> Posted by {{$post->user->username}}</p></div>
                      </div>
                      <div class="col-sm-4">
                          <div class="post-details"><p>{{$post->created_at->diffforHumans()}}</p></div>
                      </div>
-                     <div class="col-sm-4" class="post-details">
+                     <div class="col-sm-4 post-details">
                          <a href="{{URL::route('view_post',$post->id)}}#disqus_thread" style="text-decoration: none"><p><span class="glyphicon glyphicon-comment post-details" style="color: green"></span> Comments</p></a>
                      </div>
                  </div>
              </div>
         </div>
         @endforeach
+            <div class="row">
+                <div class="col-sm-8 col-sm-offset-5">
+                {{$posts->links()}}
+                </div>
+            </div>
         @endif
     </div>
     <script type="text/javascript">

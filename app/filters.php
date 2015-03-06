@@ -40,10 +40,8 @@ Route::filter('auth', function()
 /*		if (Request::ajax())
 		{
 			return Response::make('Unauthorized', 401);
-		}
-		return Redirect::guest('login');*/
-        
-        return "GUEST";
+		}*/
+		return Redirect::guest('admin');
 	}
 });
 
