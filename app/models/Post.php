@@ -57,5 +57,5 @@ class Post extends Eloquent {
         return $this->description;
     }
 
-    public static $tags = array('All','Fixtures', 'Bet', 'Transfer');
+    public static $tags = array('All','Bet', 'Critics', 'Fixtures', 'Transfer');
 }

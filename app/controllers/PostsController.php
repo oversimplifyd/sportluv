@@ -49,7 +49,10 @@ class PostsController extends BaseController {
             }
 
             // These sessions ae used to application state
-            Session::forget('view_posts_state');
+            if(Session::has("view_posts_state"))
+            {
+                Session::forget('view_posts_state');
+            }
             Session::put('view_posts_state.state', 'date_state');
             Session::put('view_posts_state.date_range_from', $from);
             Session::put('view_posts_state.date_range_to', $to);
@@ -59,13 +62,19 @@ class PostsController extends BaseController {
         {
             $tag = Input::get('tag');
             $posts = Post::where('tag', '=', $tag)->get();
-            Session::forget('view_posts_state');
+            if(Session::has("view_posts_state"))
+            {
+                Session::forget('view_posts_state');
+            }
             Session::put('view_posts_state.state', 'tag_state');
             Session::put('view_posts_state.tag', $tag);
             return View::make('admin/view_posts')->with('posts', $posts);;
         }else
         {
-            Session::forget('view_posts_state');
+            if(Session::has("view_posts_state"))
+            {
+                Session::forget('view_posts_state');
+            }
             $posts = Post::all();
             return View::make('admin/view_posts')->with('posts', $posts);;
         }
@@ -99,7 +108,7 @@ class PostsController extends BaseController {
         $post = Post::find($id);
         return View::make('admin/view_post')->with('post', $post);
     }
-    
+
     public function adminCreatePost()
 	{
         // Checks if this user is an authenticated user
