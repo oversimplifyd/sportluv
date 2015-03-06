@@ -4,7 +4,8 @@ class PostsController extends BaseController {
 
 	public function getIndex()
 	{
-        $posts = Post::remember(60)->paginate(10);
+/*        $posts = Post::remember(60)->paginate(10);*/
+        $posts = Post::orderBy('id', 'DESC')->remember(6)->paginate(10);
         return View::make('index')->with('posts', $posts);
 	}
     
@@ -42,10 +43,10 @@ class PostsController extends BaseController {
             $compare_date = strcmp($from, $to);
             if($compare_date > 0 || $compare_date < 0)
             {
-                $posts = Post::whereBetween('created_at', array($from, $to))->get();
+                $posts = Post::whereBetween('created_at', array($from, $to))->orderBy('id', 'DESC')->get();
             }else
             {
-                $posts = Post::where('created_at', '>=', $from)->get();
+                $posts = Post::where('created_at', '>=', $from)->orderBy('id', 'DESC')->get();
             }
 
             // These sessions ae used to application state
@@ -56,27 +57,27 @@ class PostsController extends BaseController {
             Session::put('view_posts_state.state', 'date_state');
             Session::put('view_posts_state.date_range_from', $from);
             Session::put('view_posts_state.date_range_to', $to);
-            return View::make('admin/view_posts')->with('posts', $posts);;
+            return View::make('admin/view_posts')->with('posts', $posts);
 
         }else if(isset($_POST['submit_by_tag']))
         {
             $tag = Input::get('tag');
-            $posts = Post::where('tag', '=', $tag)->get();
+            $posts = Post::where('tag', '=', $tag)->orderBy('id', 'DESC')->get();
             if(Session::has("view_posts_state"))
             {
                 Session::forget('view_posts_state');
             }
             Session::put('view_posts_state.state', 'tag_state');
             Session::put('view_posts_state.tag', $tag);
-            return View::make('admin/view_posts')->with('posts', $posts);;
+            return View::make('admin/view_posts')->with('posts', $posts);
         }else
         {
             if(Session::has("view_posts_state"))
             {
                 Session::forget('view_posts_state');
             }
-            $posts = Post::all();
-            return View::make('admin/view_posts')->with('posts', $posts);;
+            $posts = Post::orderBy('id', 'DESC')->get();
+            return View::make('admin/view_posts')->with('posts', $posts);
         }
 	}
 
@@ -137,7 +138,7 @@ class PostsController extends BaseController {
                 'description' => $description,
                 'post_image' => $image_location
             ));
-            return Redirect::route('admin_view_posts');
+            return Redirect::route('admin_update_view');
         }else {
             return Redirect::route('admin_login');
         }
@@ -198,18 +199,18 @@ class PostsController extends BaseController {
                 $compare_date = strcmp($from, $to);
                 if($compare_date > 0 || $compare_date < 0)
                 {
-                    $new_posts = Post::whereBetween('created_at', array($from, $to))->get();
+                    $new_posts = Post::whereBetween('created_at', array($from, $to))->orderBy('id', 'DESC')->get();
                 }else
                 {
-                    $new_posts = Post::where('created_at', '>=', $from)->get();
+                    $new_posts = Post::where('created_at', '>=', $from)->orderBy('id', 'DESC')->get();
                 }
             }else{
                 $tag = Session::get('view_posts_state.tag');
-                $new_posts = Post::where('tag', $tag)->get();
+                $new_posts = Post::where('tag', $tag)->orderBy('id', 'DESC')->get();
             }
         }else
         {
-            $new_posts = Post::all();
+            $new_posts = Post::orderBy('id', 'DESC')->get();
         }
         return View::make('admin/view_posts')->with('posts', $new_posts);
     }
